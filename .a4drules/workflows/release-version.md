@@ -45,5 +45,5 @@
    Create the version using the GitHub CLI where `VERSION_NUMBER` us the new version number:
 
    ```sh
-   gh release create VERSION_NUMBER --title VERSION_TITLE
+   gh release create VERSION_NUMBER --title VERSION_TITLE --generate-notes
    ```
