@@ -1,3 +1,3 @@
 # Agentforce Vibes Demo
 
-This is a demo respotory for Agentforce Vibes.
+This is a demo repository for Agentforce Vibes.
