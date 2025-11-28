@@ -1,4 +1,4 @@
-# Release Version Worflow
+# Release Version Workflow
 
 ## Assumptions
 
@@ -10,13 +10,13 @@
 
 1. **Check for local repository changes**
 
-   Make sure that there are no local changes to the git repository and that everthing has been pushed with this command:
+   Make sure that there are no local changes to the git repository and that everything has been pushed with this command:
 
    ```sh
    git status
    ```
 
-   If there are some uncommited changes, abort the workflow.
+   If there are some uncommitted changes, abort the workflow.
 
 1. **Get remote repository's latest release**
 
@@ -33,7 +33,7 @@
 1. **Determine new version**
 
    If the local version is smaller or identical to the remote version, ask for the new release's type before proceeding: major, minor or patch.
-   Based on the release type determine the new release version (`RELEASE_VERSION`) by following semantic versioning.
+   Based on the release type, determine the new release version (`RELEASE_VERSION`) by following semantic versioning.
 
 1. **Determine release title**
 
