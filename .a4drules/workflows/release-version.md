@@ -30,21 +30,24 @@
 
    Get the local `version` value from the `package.json` file.
 
-1. **Determine new version details**
+1. **Determine new version**
 
    If the local version is smaller or identical to the remote version, ask for the new release's type before proceeding: major, minor or patch.
+   Based on the release type determine the new release version (`RELEASE_VERSION`) by following semantic versioning.
 
-   Ask the user for the version title (`VERSION_TITLE`).
+1. **Determine release title**
+
+   Ask the user for the new release's title (`RELEASE_TITLE`).
 
 1. **Increase local project version**
 
    Update the `package.json` file with the new version.
    Commit and push the change.
 
-1. **Create new GitHub release**
+1. **Create GitHub release**
 
-   Create the GitHub release with this command where `VERSION_NUMBER` is the new version number:
+   Create the GitHub release with this command (replace `RELEASE_VERSION` and `RELEASE_TITLE` with the previously collected values):
 
    ```sh
-   gh release create VERSION_NUMBER --title VERSION_TITLE --generate-notes
+   gh release create RELEASE_VERSION --title RELEASE_TITLE --generate-notes
    ```
