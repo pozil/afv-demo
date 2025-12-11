@@ -13,7 +13,6 @@ export default class AccountList extends LightningElement {
     } else if (error) {
       this.error = error;
       this.accounts = undefined;
-      console.error("Error retrieving accounts:", error);
     }
   }
 
