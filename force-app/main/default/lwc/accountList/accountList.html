@@ -24,19 +24,14 @@
               </h3>
               <div
                 lwc:if={account.Phone}
-                class="slds-text-body_small slds-text-color_weak"
+                class="slds-text-body_small"
               >
                 {account.Phone}
               </div>
               <div
                 lwc:if={account.Website}
-                class="slds-text-body_small slds-text-color_weak"
+                class="slds-text-body_small"
               >
-                <lightning-icon
-                  icon-name="utility:link"
-                  size="x-small"
-                  class="slds-m-right_xx-small"
-                ></lightning-icon>
                 <a
                   href={account.Website}
                   target="_blank"
