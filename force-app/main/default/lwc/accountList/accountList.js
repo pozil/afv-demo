@@ -4,11 +4,9 @@ import getAccounts from "@salesforce/apex/AccountController.getAccounts";
 export default class AccountList extends LightningElement {
   accounts;
   error;
-  isLoading = true;
 
   @wire(getAccounts)
   wiredAccounts({ error, data }) {
-    this.isLoading = false;
     if (data) {
       this.accounts = data;
       this.error = undefined;

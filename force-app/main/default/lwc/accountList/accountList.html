@@ -1,12 +1,5 @@
 <template>
   <lightning-card title="Accounts">
-    <!-- Loading State -->
-    <div lwc:if={isLoading} class="slds-text-align_center slds-p-around_medium">
-      <lightning-spinner
-        alternative-text="Loading accounts..."
-      ></lightning-spinner>
-    </div>
-
     <!-- Error State -->
     <div lwc:if={hasError} class="slds-text-align_center slds-p-around_medium">
       <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
