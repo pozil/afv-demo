@@ -22,16 +22,10 @@
               <h3 class="slds-text-heading_small slds-truncate">
                 {account.Name}
               </h3>
-              <div
-                lwc:if={account.Phone}
-                class="slds-text-body_small"
-              >
+              <div lwc:if={account.Phone} class="slds-text-body_small">
                 {account.Phone}
               </div>
-              <div
-                lwc:if={account.Website}
-                class="slds-text-body_small"
-              >
+              <div lwc:if={account.Website} class="slds-text-body_small">
                 <a
                   href={account.Website}
                   target="_blank"
