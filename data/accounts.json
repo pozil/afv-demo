@@ -1,0 +1,99 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "Account1"
+      },
+      "Name": "Acme Corporation",
+      "Type": "Customer - Direct",
+      "Industry": "Technology",
+      "Phone": "(555) 123-4567",
+      "Website": "https://www.acmecorp.com",
+      "BillingStreet": "123 Main Street",
+      "BillingCity": "San Francisco",
+      "BillingState": "CA",
+      "BillingPostalCode": "94105",
+      "BillingCountry": "United States",
+      "NumberOfEmployees": 500,
+      "AnnualRevenue": 50000000,
+      "Description": "Leading technology solutions provider specializing in enterprise software development and cloud services."
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "Account2"
+      },
+      "Name": "Global Industries Inc",
+      "Type": "Customer - Channel",
+      "Industry": "Manufacturing",
+      "Phone": "(555) 987-6543",
+      "Website": "https://www.globalindustries.com",
+      "BillingStreet": "456 Industrial Blvd",
+      "BillingCity": "Chicago",
+      "BillingState": "IL",
+      "BillingPostalCode": "60601",
+      "BillingCountry": "United States",
+      "NumberOfEmployees": 1200,
+      "AnnualRevenue": 125000000,
+      "Description": "International manufacturing company with operations across North America and Europe."
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "Account3"
+      },
+      "Name": "Sunrise Healthcare Solutions",
+      "Type": "Prospect",
+      "Industry": "Healthcare",
+      "Phone": "(555) 456-7890",
+      "Website": "https://www.sunrisehealthcare.com",
+      "BillingStreet": "789 Medical Center Drive",
+      "BillingCity": "Atlanta",
+      "BillingState": "GA",
+      "BillingPostalCode": "30309",
+      "BillingCountry": "United States",
+      "NumberOfEmployees": 250,
+      "AnnualRevenue": 15000000,
+      "Description": "Healthcare technology company providing innovative patient management systems."
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "Account4"
+      },
+      "Name": "Metro Financial Services",
+      "Type": "Customer - Direct",
+      "Industry": "Financial Services",
+      "Phone": "(555) 321-0987",
+      "Website": "https://www.metrofinancial.com",
+      "BillingStreet": "321 Wall Street",
+      "BillingCity": "New York",
+      "BillingState": "NY",
+      "BillingPostalCode": "10005",
+      "BillingCountry": "United States",
+      "NumberOfEmployees": 800,
+      "AnnualRevenue": 75000000,
+      "Description": "Full-service financial institution offering banking, investment, and insurance solutions."
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "Account5"
+      },
+      "Name": "Green Energy Solutions LLC",
+      "Type": "Partner",
+      "Industry": "Energy",
+      "Phone": "(555) 654-3210",
+      "Website": "https://www.greenenergysolutions.com",
+      "BillingStreet": "555 Renewable Way",
+      "BillingCity": "Austin",
+      "BillingState": "TX",
+      "BillingPostalCode": "78701",
+      "BillingCountry": "United States",
+      "NumberOfEmployees": 150,
+      "AnnualRevenue": 8500000,
+      "Description": "Renewable energy company specializing in solar and wind power solutions for commercial clients."
+    }
+  ]
+}

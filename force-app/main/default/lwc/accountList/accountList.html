@@ -1,0 +1,56 @@
+<template>
+  <lightning-card title="Accounts" icon-name="standard:account">
+    <!-- Error State -->
+    <div lwc:if={hasError} class="slds-text-align_center slds-p-around_medium">
+      <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+        <span class="slds-assistive-text">Error</span>
+        <h2>Error loading accounts. Please try again later.</h2>
+      </div>
+    </div>
+
+    <!-- Accounts List -->
+    <div lwc:if={hasAccounts}>
+      <ul class="slds-has-dividers_around-space">
+        <li
+          for:each={accounts}
+          for:item="account"
+          key={account.Id}
+          class="slds-item slds-p-around_small"
+        >
+          <div class="slds-grid slds-grid_align-spread">
+            <div class="slds-col">
+              <h3 class="slds-text-heading_small slds-truncate">
+                {account.Name}
+              </h3>
+              <div
+                lwc:if={account.Phone}
+                class="slds-text-body_small"
+              >
+                {account.Phone}
+              </div>
+              <div
+                lwc:if={account.Website}
+                class="slds-text-body_small"
+              >
+                <a
+                  href={account.Website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {account.Website}
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- No Accounts Message -->
+    <div lwc:else>
+      <div class="slds-text-align_center slds-p-around_medium">
+        <div class="slds-text-color_weak">No accounts found.</div>
+      </div>
+    </div>
+  </lightning-card>
+</template>
