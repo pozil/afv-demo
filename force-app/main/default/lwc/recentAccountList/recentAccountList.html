@@ -1,0 +1,96 @@
+<template>
+  <lightning-card title="Recent Accounts" icon-name="standard:account">
+    <div class="slds-p-horizontal_medium">
+      <!-- Error State -->
+      <div
+        lwc:if={hasError}
+        class="slds-text-align_center slds-p-around_medium"
+      >
+        <div
+          class="slds-notify slds-notify_alert slds-alert_error"
+          role="alert"
+        >
+          <span class="slds-assistive-text">Error</span>
+          <h2>Error loading recent accounts. Please try again later.</h2>
+        </div>
+      </div>
+
+      <!-- Recent Accounts Tiles -->
+      <div lwc:elseif={hasAccounts}>
+        <ul class="slds-has-dividers_around-space">
+          <li
+            for:each={accounts}
+            for:item="account"
+            key={account.Id}
+            class="slds-item"
+          >
+            <article class="slds-tile">
+              <h3 class="slds-tile__title slds-truncate" title={account.Name}>
+                <a
+                  href="#"
+                  data-account-id={account.Id}
+                  onclick={handleAccountClick}
+                >
+                  {account.Name}
+                </a>
+              </h3>
+              <div class="slds-tile__detail">
+                <dl class="slds-list_horizontal slds-wrap">
+                  <dt
+                    lwc:if={account.Phone}
+                    class="slds-item_label slds-text-color_weak slds-truncate"
+                  >
+                    Phone:
+                  </dt>
+                  <dd
+                    lwc:if={account.Phone}
+                    class="slds-item_detail slds-truncate"
+                  >
+                    {account.Phone}
+                  </dd>
+                  <dt
+                    lwc:if={account.Website}
+                    class="slds-item_label slds-text-color_weak slds-truncate"
+                  >
+                    Website:
+                  </dt>
+                  <dd
+                    lwc:if={account.Website}
+                    class="slds-item_detail slds-truncate"
+                  >
+                    <a
+                      href={account.Website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {account.Website}
+                    </a>
+                  </dd>
+                  <dt
+                    lwc:if={account.LastModifiedDate}
+                    class="slds-item_label slds-text-color_weak slds-truncate"
+                  >
+                    Last updated:
+                  </dt>
+                  <dd
+                    lwc:if={account.LastModifiedDate}
+                    class="slds-item_detail slds-truncate"
+                  >
+                    {account.formattedLastModified}
+                  </dd>
+                </dl>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+
+      <!-- No Recent Accounts Message -->
+      <div lwc:else>
+        <div class="slds-text-align_center slds-p-around_medium">
+          <div class="slds-text-color_weak">No recent accounts found.</div>
+        </div>
+      </div>
+    </div>
+  </lightning-card>
+</template>
