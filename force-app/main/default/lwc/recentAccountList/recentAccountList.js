@@ -1,4 +1,4 @@
-import { LightningElement, wire } from "lwc";
+import { LightningElement, wire, track } from "lwc";
 import { NavigationMixin } from "lightning/navigation";
 import getRecentAccounts from "@salesforce/apex/AccountController.getRecentAccounts";
 
@@ -7,6 +7,7 @@ export default class RecentAccountList extends NavigationMixin(
 ) {
   accounts;
   error;
+  @track isDetailedView = true;
 
   @wire(getRecentAccounts)
   wiredRecentAccounts({ error, data }) {
@@ -40,6 +41,42 @@ export default class RecentAccountList extends NavigationMixin(
   }
 
   /**
+   * @description Determines if the component is in compact view mode
+   * @returns {boolean} True if in compact view
+   */
+  get isCompactView() {
+    return !this.isDetailedView;
+  }
+
+  /**
+   * @description Gets the appropriate icon for the view toggle button
+   * @returns {string} Icon name for current view state
+   */
+  get viewToggleIcon() {
+    return this.isDetailedView ? "utility:list" : "utility:tile_card_list";
+  }
+
+  /**
+   * @description Gets the alternative text for the view toggle button
+   * @returns {string} Alt text for accessibility
+   */
+  get viewToggleAltText() {
+    return this.isDetailedView
+      ? "Switch to compact view"
+      : "Switch to detailed view";
+  }
+
+  /**
+   * @description Gets the title text for the view toggle button
+   * @returns {string} Title text for button hover
+   */
+  get viewToggleTitle() {
+    return this.isDetailedView
+      ? "Switch to compact view"
+      : "Switch to detailed view";
+  }
+
+  /**
    * @description Formats a date for display
    * @param {string} dateString The date string to format
    * @returns {string} Formatted date string
@@ -67,5 +104,14 @@ export default class RecentAccountList extends NavigationMixin(
         }
       });
     }
+  }
+
+  /**
+   * @description Handles the view toggle button click to switch between detailed and compact views
+   * @param {Event} event The click event
+   */
+  handleViewToggle(event) {
+    event.preventDefault();
+    this.isDetailedView = !this.isDetailedView;
   }
 }

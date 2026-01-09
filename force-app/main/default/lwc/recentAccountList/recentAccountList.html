@@ -1,5 +1,14 @@
 <template>
   <lightning-card title="Recent Accounts" icon-name="standard:account">
+    <div slot="actions">
+      <lightning-button-icon
+        icon-name={viewToggleIcon}
+        variant="border-filled"
+        alternative-text={viewToggleAltText}
+        title={viewToggleTitle}
+        onclick={handleViewToggle}
+      ></lightning-button-icon>
+    </div>
     <div class="slds-p-horizontal_medium">
       <!-- Error State -->
       <div
@@ -15,74 +24,100 @@
         </div>
       </div>
 
-      <!-- Recent Accounts Tiles -->
+      <!-- Recent Accounts Display -->
       <div lwc:elseif={hasAccounts}>
-        <ul class="slds-has-dividers_around-space">
-          <li
-            for:each={accounts}
-            for:item="account"
-            key={account.Id}
-            class="slds-item"
-          >
-            <article class="slds-tile">
-              <h3 class="slds-tile__title slds-truncate" title={account.Name}>
+        <!-- Detailed View -->
+        <div lwc:if={isDetailedView}>
+          <ul class="slds-has-dividers_around-space">
+            <li
+              for:each={accounts}
+              for:item="account"
+              key={account.Id}
+              class="slds-item"
+            >
+              <article class="slds-tile">
+                <h3 class="slds-tile__title slds-truncate" title={account.Name}>
+                  <a
+                    href="#"
+                    data-account-id={account.Id}
+                    onclick={handleAccountClick}
+                  >
+                    {account.Name}
+                  </a>
+                </h3>
+                <div class="slds-tile__detail">
+                  <dl class="slds-list_horizontal slds-wrap">
+                    <dt
+                      lwc:if={account.Phone}
+                      class="slds-item_label slds-text-color_weak slds-truncate"
+                    >
+                      Phone:
+                    </dt>
+                    <dd
+                      lwc:if={account.Phone}
+                      class="slds-item_detail slds-truncate"
+                    >
+                      {account.Phone}
+                    </dd>
+                    <dt
+                      lwc:if={account.Website}
+                      class="slds-item_label slds-text-color_weak slds-truncate"
+                    >
+                      Website:
+                    </dt>
+                    <dd
+                      lwc:if={account.Website}
+                      class="slds-item_detail slds-truncate"
+                    >
+                      <a
+                        href={account.Website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {account.Website}
+                      </a>
+                    </dd>
+                    <dt
+                      lwc:if={account.LastModifiedDate}
+                      class="slds-item_label slds-text-color_weak slds-truncate"
+                    >
+                      Last updated:
+                    </dt>
+                    <dd
+                      lwc:if={account.LastModifiedDate}
+                      class="slds-item_detail slds-truncate"
+                    >
+                      {account.formattedLastModified}
+                    </dd>
+                  </dl>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Compact View -->
+        <div lwc:else>
+          <ul class="slds-has-dividers_bottom-space">
+            <li
+              for:each={accounts}
+              for:item="account"
+              key={account.Id}
+              class="slds-item slds-p-vertical_small"
+            >
+              <div class="slds-truncate">
                 <a
                   href="#"
                   data-account-id={account.Id}
                   onclick={handleAccountClick}
+                  class="slds-text-heading_small"
                 >
                   {account.Name}
                 </a>
-              </h3>
-              <div class="slds-tile__detail">
-                <dl class="slds-list_horizontal slds-wrap">
-                  <dt
-                    lwc:if={account.Phone}
-                    class="slds-item_label slds-text-color_weak slds-truncate"
-                  >
-                    Phone:
-                  </dt>
-                  <dd
-                    lwc:if={account.Phone}
-                    class="slds-item_detail slds-truncate"
-                  >
-                    {account.Phone}
-                  </dd>
-                  <dt
-                    lwc:if={account.Website}
-                    class="slds-item_label slds-text-color_weak slds-truncate"
-                  >
-                    Website:
-                  </dt>
-                  <dd
-                    lwc:if={account.Website}
-                    class="slds-item_detail slds-truncate"
-                  >
-                    <a
-                      href={account.Website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {account.Website}
-                    </a>
-                  </dd>
-                  <dt
-                    lwc:if={account.LastModifiedDate}
-                    class="slds-item_label slds-text-color_weak slds-truncate"
-                  >
-                    Last updated:
-                  </dt>
-                  <dd
-                    lwc:if={account.LastModifiedDate}
-                    class="slds-item_detail slds-truncate"
-                  >
-                    {account.formattedLastModified}
-                  </dd>
-                </dl>
               </div>
-            </article>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <!-- No Recent Accounts Message -->
