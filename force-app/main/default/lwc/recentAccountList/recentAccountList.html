@@ -1,5 +1,14 @@
 <template>
   <lightning-card title="Recent Accounts" icon-name="standard:account">
+    <div slot="actions">
+      <lightning-button-icon
+        icon-name={toggleIcon}
+        variant="border"
+        alternative-text={toggleTitle}
+        title={toggleTitle}
+        onclick={handleToggleView}
+      ></lightning-button-icon>
+    </div>
     <div class="slds-p-horizontal_medium">
       <!-- Error State -->
       <div
@@ -15,7 +24,47 @@
         </div>
       </div>
 
-      <!-- Recent Accounts Tiles -->
+      <!-- Recent Accounts - Compact View -->
+      <div lwc:if={isCompactView}>
+        <div lwc:if={hasAccounts} class="compact-view">
+          <ul class="slds-has-dividers_bottom slds-has-block-links_space">
+            <li
+              for:each={accounts}
+              for:item="account"
+              key={account.Id}
+              class="slds-item"
+            >
+              <div class="slds-p-vertical_x-small">
+                <a
+                  href="#"
+                  data-account-id={account.Id}
+                  onclick={handleAccountClick}
+                  class="slds-text-link_reset"
+                >
+                  <div class="slds-media slds-media_center">
+                    <div class="slds-media__figure">
+                      <lightning-icon
+                        icon-name="standard:account"
+                        size="small"
+                      ></lightning-icon>
+                    </div>
+                    <div class="slds-media__body">
+                      <h3
+                        class="slds-text-heading_small slds-truncate"
+                        title={account.Name}
+                      >
+                        {account.Name}
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Recent Accounts - Detailed View -->
       <div lwc:elseif={hasAccounts}>
         <ul class="slds-has-dividers_around-space">
           <li
