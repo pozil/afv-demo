@@ -7,6 +7,7 @@ export default class RecentAccountList extends NavigationMixin(
 ) {
   accounts;
   error;
+  isCompactView = false;
 
   @wire(getRecentAccounts)
   wiredRecentAccounts({ error, data }) {
@@ -40,6 +41,24 @@ export default class RecentAccountList extends NavigationMixin(
   }
 
   /**
+   * @description Gets the icon name for the view toggle button
+   * @returns {string} Icon name based on current view mode
+   */
+  get toggleIcon() {
+    return this.isCompactView ? "utility:list" : "utility:rows";
+  }
+
+  /**
+   * @description Gets the title for the view toggle button
+   * @returns {string} Title text for accessibility
+   */
+  get toggleTitle() {
+    return this.isCompactView
+      ? "Switch to detailed view"
+      : "Switch to compact view";
+  }
+
+  /**
    * @description Formats a date for display
    * @param {string} dateString The date string to format
    * @returns {string} Formatted date string
@@ -67,5 +86,12 @@ export default class RecentAccountList extends NavigationMixin(
         }
       });
     }
+  }
+
+  /**
+   * @description Handles toggle between compact and detailed view
+   */
+  handleToggleView() {
+    this.isCompactView = !this.isCompactView;
   }
 }
