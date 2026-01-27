@@ -10,3 +10,10 @@ package.xml
 
 # LWC Jest
 **/__tests__/**
+
+# DevOps Center resources
+**/externalCredentials/ALMDevOpsCenterHub.externalCredential-meta.xml
+**/namedCredentials/ALMDevOpsCenterHub.namedCredential-meta.xml
+**/permissionsets/Devops_PS.permissionset-meta.xml
+**/permissionsets/sfdcInternalInt__sfdc_scrt2.permissionset-meta.xml
+
