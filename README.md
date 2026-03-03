@@ -1,13 +1,8 @@
 # Agentforce Vibes Demo
 
-This is a demo repository for Agentforce Vibes.
-
-# Contributing
-
-Contributions will not accepted.
+This is a demo repository for Agentforce Vibes that feature a sample app for managing movies.
 
 # Data Model
-
 
 ```mermaid
 classDiagram
@@ -49,3 +44,31 @@ classDiagram
     Movie "1" -- "0..*" MovieDirector : directed_by
     Director "1" -- "0..*" MovieDirector : directs
 ```
+
+## Movie Object
+
+This object describes a movie.
+
+### Genre Field
+
+The field support the following values:
+- Action
+- Adventure
+- Animation
+- Biography
+- Comedy
+- Crime
+- Drama
+- Family
+- Fantasy
+- History
+- Horror
+- Music
+- Musical
+- Mystery
+- Romance
+- Sci-Fi
+- Sport
+- Thriller
+- War
+- Western
