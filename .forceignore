@@ -17,3 +17,5 @@ package.xml
 **/permissionsets/Devops_PS.permissionset-meta.xml
 **/permissionsets/sfdcInternalInt__sfdc_scrt2.permissionset-meta.xml
 
+# Standard metadata
+**/profiles/**
