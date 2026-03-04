@@ -51,7 +51,7 @@ This object describes a movie.
 
 ### Genre Field
 
-The field support the following values:
+The field allows multiple selection among the following values:
 - Action
 - Adventure
 - Animation
