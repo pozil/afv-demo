@@ -26,9 +26,9 @@ echo "" && \
 #sf org assign permset -n afv-demo && \
 #echo "" && \
 
-echo "Importing sample data..." && \
-sf data tree import -p data/data-plan.json && \
-echo "" && \
+#echo "Importing sample data..." && \
+#sf data tree import -p data/data-plan.json && \
+#echo "" && \
 
 echo "Opening org..." && \
 sf org open && \
