@@ -1,6 +1,6 @@
 {
   "orgName": "pozil",
-  "edition": "Developer",
+  "edition": "developer",
   "language": "en_US",
   "features": ["EnableSetPasswordInApi", "Einstein1AIPlatform"],
   "settings": {
