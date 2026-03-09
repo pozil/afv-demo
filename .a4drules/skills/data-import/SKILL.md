@@ -1,6 +1,6 @@
 ---
 name: data-import
-description: Use this skill to import data in Salesforce.
+description: Use this skill to import data with the Salesforce CLI.
 ---
 
 # data-import
@@ -9,9 +9,9 @@ Follow these steps to import data in Salesforce using the Salesforce CLI `data i
 
 ## Steps
 
-1. For each object, prepare a JSON data files in `/data`.
+1. For each object that is part of the import, prepare a JSON data file in the `/data` folder.
 
-   For example, this is a sample `Product_Family__cs.json` data file for the `Product_Family__c` object:
+   For example, if there's a `Product_Family__c` object, create a `Product_Family__cs.json` data file like this:
 
    ```json
    {
@@ -52,7 +52,7 @@ Follow these steps to import data in Salesforce using the Salesforce CLI `data i
 
    Note how the `referenceId` field from the product family record with value `DynamoRef` is used as `@DynamoRef` in `Product_Family__c` field of the product record.
 
-1. Build a data plan file that links to the data files.
+1. Build a data plan file that include links to the data files.
 
    This is a sample `data-plan.json` data plan file:
 
