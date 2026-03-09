@@ -4,4 +4,4 @@ This is a demo repository for Agentforce Vibes.
 
 # Contributing
 
-Contributions will not accepted.
+Contributions are not accepted.
