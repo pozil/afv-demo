@@ -3,8 +3,11 @@
 ## Assumptions
 
 - This workflow applies to the current repository.
-- The git CLI (`git`) and the GitHub CLI (`gh`) are already installed.
-- All versions use Semantic Versioning convention.
+- The following software is installed
+  - git CLI (`git`)
+  - GitHub CLI (`gh`)
+  - command-line JSON processor (`jq`)
+- All repository versions use Semantic Versioning convention.
 
 ## Instructions
 
