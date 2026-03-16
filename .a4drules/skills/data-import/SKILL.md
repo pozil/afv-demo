@@ -1,13 +1,17 @@
 ---
 name: data-import
-description: Use this skill to import data in Salesforce.
+description: Import data in Salesforce. Use when importing multiple records from related or unrelated objects.
 ---
 
 # data-import
 
-This skill imports data in Salesforce using the Salesforce CLI `data import tree` command.
+This skill imports data from multiple related or unrelated records in Salesforce using the Salesforce CLI `sf data import tree` command. This relies on building a JSON data plan that links to one or several JSON data files ahead of the import.
 
 ## Steps
+
+1. Identify the objects that are included in the import.
+
+1. Identify the fields of the target objects.
 
 1. For each object that is part of the import, prepare a JSON data file in the `/data` folder of the project.
 
@@ -50,11 +54,11 @@ This skill imports data in Salesforce using the Salesforce CLI `data import tree
    }
    ```
 
-   Note how the `Product__c.Product_Family__c` field points to the `Product_Family__c` record with `@DynamoRef`.
+   Note how the `Product__c.Product_Family__c` field points to the `Product_Family__c` record with `@DynamoRef` (`@` symbol followed by the `referenceId` value).
 
 1. Build a data plan file that include links to the data files.
 
-   This is a sample `data-plan.json` data plan file:
+   This is a sample `data-plan.json` data plan file that includes the data files for the `Product_Family__c` and `Product__c` records:
 
    ```json
    [
@@ -70,6 +74,8 @@ This skill imports data in Salesforce using the Salesforce CLI `data import tree
      }
    ]
    ```
+
+   Note how the `Product_Family__c` saves reference IDs thanks to a `saveRefs` attribute set to `true` and how `Product__c` resolves saved references thanks to a `resolveRefs` attribute set to `true`.
 
 1. Use the Salesforce CLI to import the data plan:
    ```sh
