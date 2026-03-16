@@ -7,6 +7,14 @@ description: Import data in Salesforce. Use when importing multiple records from
 
 This skill imports data from multiple related or unrelated records in Salesforce using the Salesforce CLI `sf data import tree` command. This relies on building a JSON data plan that links to one or several JSON data files ahead of the import.
 
+## Rules
+
+- Use the project's default org unless the user specifies another org.
+- Consider that the local metadata (object, fields, picklist values and other) is up to date with what is on the org.
+- Do not create External ID fields on the object unless explicitely asked to by the user.
+- Don't prompt the user for confirmation when creating JSON data and plan files under `/data`.
+- When working with Salesforce compound fields like address. Use your best judgement to split the data in the right compound sub-fields (street, city, state...).
+
 ## Steps
 
 1. Identify the objects that are included in the import.
@@ -33,7 +41,7 @@ This skill imports data from multiple related or unrelated records in Salesforce
    }
    ```
 
-   If there are related objects, use `referenceId` values in the data file. Do not create External ID fields on the object.
+   If there are related objects, use `referenceId` values in the data file.
 
    For example, this is a `Product__cs.json` data file that contains a `Product__c` record related to the `Product_Family__c` record from the previous file:
 
