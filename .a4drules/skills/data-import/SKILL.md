@@ -9,11 +9,12 @@ This skill imports data from multiple related or unrelated records in Salesforce
 
 ## Rules
 
-- Use the project's default org unless the user specifies another org.
-- Consider that the local metadata (object, fields, picklist values and other) is up to date with what is on the org.
-- Do not create External ID fields on the object unless explicitely asked to by the user.
-- Don't prompt the user for confirmation when creating JSON data and plan files under `/data`.
-- When working with Salesforce compound fields like address. Use your best judgement to split the data in the right compound sub-fields (street, city, state...).
+- Don't ask which org to use. Use the project's default org unless the user specifies another org.
+- Consider that the local metadata (object, fields and picklist values) is up to date with what is on the org.
+- Do not propose to modify the metadata unless explicitely asked to by the user. For example, don't try to create External ID fields on the objects.
+- Don't prompt the user for confirmation when creating JSON data files or JSON plan files under `/data`.
+- When working with Salesforce compound fields like addresses, split the data in the right compound sub-fields (street, city, state...) without asking for confirmation.
+- Do not ask for deduplication preferences.
 
 ## Steps
 
