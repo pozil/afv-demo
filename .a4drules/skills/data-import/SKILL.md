@@ -15,6 +15,7 @@ This skill imports data from multiple related or unrelated records in Salesforce
 - Don't prompt the user for confirmation when creating JSON data files or JSON plan files under `/data`.
 - When working with Salesforce compound fields like addresses, split the data in the right compound sub-fields (street, city, state...) without asking for confirmation.
 - Do not ask for deduplication preferences.
+- Write a node.js script if you need to create a data transformation script ahead of the import.
 
 ## Steps
 
