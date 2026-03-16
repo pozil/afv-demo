@@ -15,7 +15,6 @@ This skill imports data from multiple related or unrelated records in Salesforce
 - Don't prompt the user for confirmation when creating JSON data files or JSON plan files under `/data`.
 - When working with Salesforce compound fields like addresses, split the data in the right compound sub-fields (street, city, state...) without asking for confirmation.
 - Do not ask for deduplication preferences.
-- Write a node.js script if you need to create a data transformation script ahead of the import.
 
 ## Steps
 
@@ -23,7 +22,9 @@ This skill imports data from multiple related or unrelated records in Salesforce
 
 1. Identify the fields of the target objects.
 
-1. For each object that is part of the import, prepare a JSON data file in the `/data` folder of the project.
+1. Write a Node.js script to transform the data ahead of the import. If parsing CSV, use the `csv-parse` node library.
+
+   For each object that is part of the import, prepare a JSON data file in the `/data` folder of the project.
 
    For example, if there's a `Product_Family__c` object, create a `Product_Family__cs.json` data file like this:
 
@@ -66,7 +67,9 @@ This skill imports data from multiple related or unrelated records in Salesforce
 
    Note how the `Product__c.Product_Family__c` field points to the `Product_Family__c` record with `@DynamoRef` (`@` symbol followed by the `referenceId` value).
 
-1. Build a data plan file that include links to the data files.
+1. Run the node data transformation script.
+
+1. Build a data plan file that include links to the generated JSON data files.
 
    This is a sample `data-plan.json` data plan file that includes the data files for the `Product_Family__c` and `Product__c` records:
 
