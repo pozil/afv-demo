@@ -5,7 +5,7 @@ description: Import data in Salesforce. Use when importing multiple records from
 
 # data-import
 
-This skill imports data from multiple related or unrelated records in Salesforce using the Salesforce CLI `sf data import tree` command. This relies on building a JSON data plan that links to one or several JSON data files ahead of the import.
+This skill imports data from multiple related or unrelated records in Salesforce using the Salesforce CLI `sf data tree import` command. This relies on building a JSON data plan that links to one or several JSON data files ahead of the import.
 
 ## Rules
 
@@ -92,5 +92,5 @@ This skill imports data from multiple related or unrelated records in Salesforce
 
 1. Use the Salesforce CLI to import the data plan:
    ```sh
-   sf data import tree --plan data-plan.json
+   sf data tree import --plan data-plan.json
    ```
