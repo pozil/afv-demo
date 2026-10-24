@@ -1,4 +1,7 @@
-# Release Version Workflow
+---
+name: release-version
+description: "Releases a version of the app on GitHub"
+---
 
 ## Assumptions
 
