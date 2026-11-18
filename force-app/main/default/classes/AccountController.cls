@@ -1,3 +1,6 @@
+/**
+ * @description Controller exposing Account data to Lightning Web Components
+ */
 public with sharing class AccountController {
   /**
    * @description Retrieves a list of recently modified accounts for display in Lightning components
