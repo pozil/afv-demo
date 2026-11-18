@@ -27,7 +27,7 @@
       <!-- Recent Accounts - Compact View -->
       <div lwc:if={isCompactView}>
         <div lwc:if={hasAccounts} class="compact-view">
-          <ul class="slds-has-dividers_bottom slds-has-block-links_space">
+          <ul class="slds-has-block-links_space">
             <li
               for:each={accounts}
               for:item="account"
@@ -42,12 +42,6 @@
                   class="slds-text-link_reset"
                 >
                   <div class="slds-media slds-media_center">
-                    <div class="slds-media__figure">
-                      <lightning-icon
-                        icon-name="standard:account"
-                        size="small"
-                      ></lightning-icon>
-                    </div>
                     <div class="slds-media__body">
                       <h3
                         class="slds-text-heading_small slds-truncate"
