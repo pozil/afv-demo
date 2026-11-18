@@ -19,7 +19,7 @@ export default class RecentAccountList extends NavigationMixin(
       this.error = undefined;
     } else if (error) {
       this.error = error;
-      this.accounts = undefined;
+      this.accounts = [];
       console.error(JSON.stringify(error));
     }
   }
